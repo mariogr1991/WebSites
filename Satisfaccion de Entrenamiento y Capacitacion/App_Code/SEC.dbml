@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VSSECTEST" Class="SECDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=PROGRAMADOR2-PC\TEST;Initial Catalog=VSSECTEST;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="VSSECTESTConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Rol" Member="Rol">
+    <Type Name="Rol">
+      <Column Name="IDR" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreR" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionR" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Association Name="Rol_Usuario" Member="Usuario" ThisKey="IDR" OtherKey="IDR" Type="Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Encuesta" Member="Encuesta">
+    <Type Name="Encuesta">
+      <Column Name="IDE" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TipoE" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="P1E" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="P2E" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="P3E" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="P4E" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="P5E" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Encuesta_Usuario_Encuesta" Member="Usuario_Encuesta" ThisKey="IDE" OtherKey="IDE" Type="Usuario_Encuesta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Respuesta" Member="Respuesta">
+    <Type Name="Respuesta">
+      <Column Name="IDRE" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="R1RE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="R2RE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="R3RE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="R4RE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="R5RE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="Respuesta_Usuario_Encuesta" Member="Usuario_Encuesta" ThisKey="IDRE" OtherKey="IDRE" Type="Usuario_Encuesta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pregunta" Member="Pregunta">
+    <Type Name="Pregunta">
+      <Column Name="IDP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PreguntaP" Type="System.String" DbType="VarChar(600) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerDetalleEncuesta" Member="ObtenerDetalleEncuesta">
+    <Type Name="ObtenerDetalleEncuesta">
+      <Column Name="IDU_E" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDRE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EvaluandoU_E" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FechaAplicacionU_E" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TipoE" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="R1RE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="R2RE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="R3RE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="R4RE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="R5RE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Unidad" Member="Unidad">
+    <Type Name="Unidad">
+      <Column Name="IDUN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="RazonSocialUN" Type="System.String" DbType="VarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="IDHumanSiteUN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UsuarioUnidad" Member="UsuarioUnidad">
+    <Type Name="UsuarioUnidad">
+      <Column Name="IDUU" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumeroEmpleadoUU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDUN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario_Encuesta" Member="Usuario_Encuesta">
+    <Type Name="Usuario_Encuesta">
+      <Column Name="IDU_E" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDRE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EvaluandoU_E" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FechaAplicacionU_E" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Encuesta_Usuario_Encuesta" Member="Encuesta" ThisKey="IDE" OtherKey="IDE" Type="Encuesta" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Respuesta_Usuario_Encuesta" Member="Respuesta" ThisKey="IDRE" OtherKey="IDRE" Type="Respuesta" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReporteConcentrado" Member="ReporteConcentrado">
+    <Type Name="ReporteConcentrado">
+      <Column Name="NoEvaluaciones" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Evaluado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Evaluador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnidadEvaluado" Type="System.String" DbType="VarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="UnidadEvaluador" Type="System.String" DbType="VarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoE" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="IDE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAplicacionU_E" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IDHumanSiteUN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerEvaluacionesUnidad" Member="ObtenerEvaluacionesUnidad">
+    <Type Name="ObtenerEvaluacionesUnidad">
+      <Column Name="NoEvaluaciones" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAplicacionU_E" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerPromedioUnidad" Member="ObtenerPromedioUnidad">
+    <Type Name="ObtenerPromedioUnidad">
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAplicacionU_E" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PR1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PR2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PR3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PR4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PR5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumeroEmpleadoU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusU" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PINU" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="EspCocinaU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EspPisoU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EspPanaderiaU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EspAlmacenU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FechaAcreditacionU" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ObservacionesAcreditacionU" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="IDUNHumanSite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiasCapacitacionU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Rol_Usuario" Member="Rol" ThisKey="IDR" OtherKey="IDR" Type="Rol" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerInfoUsuario" Member="ObtenerInfoUsuario">
+    <Type Name="ObtenerInfoUsuario">
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumeroEmpleadoU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusU" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PINU" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="EspCocinaU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EspPisoU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EspPanaderiaU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EspAlmacenU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FechaAcreditacionU" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ObservacionesAcreditacionU" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="IDUNHumanSite" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiasCapacitacionU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="RazonSocialUN" Type="System.String" DbType="VarChar(600) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreR" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

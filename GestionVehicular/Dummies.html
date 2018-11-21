@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- DatePicker para el calendario---->
+    <link href="CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="DatePicker/css/bootstrap-datetimepicker.css" rel="stylesheet" />     
+    <link href="CSS/Prueba.css" rel="stylesheet" type="text/css" />
+    <script src="Js/Funciones.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Bootstrap core CSS -->
+    <link href="CSS/bootstrap.css" rel="stylesheet" />
+    <!-- Material Design Bootstrap -->
+    <link href="CSS/mdb.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <input size="16" type="text" value="" class="form_date" data-date-format="dd-mm-yyyy" data-link-format="dd-mm-yyyy">
+    <div id="filename"></div>
+    <div id="progress"></div>
+    <div id="progressBar"></div>
+
+    <input type="file" name="file">
+
+    <i id="1" class="fa fa-star-o amber-text" aria-hidden="true" onclick="ClickEstrella(1)"></i>
+    <i id="2" class="fa fa-star-o amber-text" aria-hidden="true" onclick="ClickEstrella(2)"></i>
+    <i id="3" class="fa fa-star-o amber-text" aria-hidden="true" onclick="ClickEstrella(3)"></i>
+    <i id="4" class="fa fa-star-o amber-text" aria-hidden="true" onclick="ClickEstrella(4)"></i>
+    <i id="5" class="fa fa-star-o amber-text" aria-hidden="true" onclick="ClickEstrella(5)"></i>
+    <input type="text" id="valor" />
+    
+
+
+
+
+<script src="DatePicker/js/bootstrap-datetimepicker.js"></script>
+<script src="DatePicker/js/locales/bootstrap-datetimepicker.es.js"></script>
+    <script src="Js/TEST.js"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+    <script src="Js/dropzone.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $('input[type=file]').change(function () {
+
+                $(this).simpleUpload("CargarArchivo.asmx/Guardar", {
+                    name:"Llaveeeeeee",
+
+                    start: function (file) {
+                        //upload started
+                        $('#filename').html(file.name);
+                        $('#progress').html("");
+                        $('#progressBar').width(0);
+                    },
+
+                    progress: function (progress) {
+                        //received progress
+                        $('#progress').html("Progress: " + Math.round(progress) + "%");
+                        $('#progressBar').width(progress + "%");
+                    },
+
+                    success: function (data) {
+                        //upload successful
+                        $('#progress').html("Success!<br>Data: " + JSON.stringify(data));
+                    },
+
+                    error: function (error) {
+                        //upload failed
+                        $('#progress').html("Failure!<br>" + error.name + ": " + error.message);
+                    }
+
+                });
+
+            });
+
+        });
+
+
+    $('.form_date').datetimepicker({
+        format: 'dd-mm-yyyy',        
+        language: 'es',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0,
+        
+    });
+    </script>
+    
+</body>
+</html>

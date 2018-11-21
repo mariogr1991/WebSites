@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MRC" Class="MRCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=PROGRAMADOR2-PC\TEST;Initial Catalog=MRC;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MRCConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Menu" Member="Menu">
+    <Type Name="Menu">
+      <Column Name="IDM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreM" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoM" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IDPadreM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IconoM" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="URLM" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Puesto" Member="Puesto">
+    <Type Name="Puesto">
+      <Column Name="IDP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreP" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionP" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NumeroEmpleadoU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreUsuarioU" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ContrasenaU" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusU" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaUltimaConexionU" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IDPU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerSubMenuPuesto" Member="ObtenerSubMenuPuesto">
+    <Type Name="ObtenerSubMenuPuesto">
+      <Column Name="IDM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreM" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoM" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IDPadreM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IconoM" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="URLM" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="IDPM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusPM" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rol" Member="Rol">
+    <Type Name="Rol">
+      <Column Name="IDR" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreR" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PuestoMenu" Member="PuestoMenu">
+    <Type Name="PuestoMenu">
+      <Column Name="IDPM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusPM" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IDR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ObtenerMenuPuesto" Method="ObtenerMenuPuesto">
+    <Parameter Name="IDP" Parameter="iDP" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ObtenerMenuPuestoResult">
+      <Column Name="IDPadreM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

@@ -1,0 +1,113 @@
+﻿body{
+    height:100%;
+    margin:0px;
+    font-family: 'Asap', sans-serif;    
+    font-size:18px;    
+    
+}
+
+.Titulo
+{
+    font-family: 'Raleway', sans-serif;
+    font-size:42px;
+    font-weight:bolder;
+}
+
+.CuerpoText
+{
+    font-family: 'Asap', sans-serif;    
+    font-size:18px;
+}
+
+.CuerpoTextMedium
+{
+    font-family: 'Asap', sans-serif;    
+    font-size:16px;
+}
+
+.CuerpoTextSmall
+{
+    font-family: 'Asap', sans-serif;    
+    font-size:14px;
+}
+
+.color-boton-principal
+{
+    /*background-color:#DC911B !important;*/
+    background-color:#f59307 !important;
+}
+
+.TituloDash{
+    font-family: 'Raleway', sans-serif;
+    font-size:14px;
+    font-weight:bolder;
+    color:#9496a1;
+}
+
+.icono-menu{
+    width:100px;
+    height:100px;
+}
+
+
+
+
+.notificaciones.open .form-inline {
+  display: block; }
+
+.notificaciones .dropdown {
+  display: inline-block; }
+  .notificaciones .dropdown .dropdown-toggle {
+    background: transparent;
+    border: none;
+    color: #272c33;
+    font-size: 16px; }
+    .notificaciones .dropdown .dropdown-toggle:after {
+      display: none; }
+    .notificaciones .dropdown .dropdown-toggle .count {
+      border-radius: 50%;
+      color: #fff;
+      font-size: 11px;
+      height: 15px;
+      width: 15px;
+      line-height: 15px;
+      right: 0;
+      top: 0;
+      position: absolute; }
+    .notificaciones .dropdown .dropdown-toggle:active, .header-left .dropdown .dropdown-toggle:focus, .header-left .dropdown .dropdown-toggle:visited {
+      background: none !important;
+      border-color: transparent !important;
+      color: #272c33 !important; }
+  .notificaciones .dropdown .dropdown-menu {
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    top: 49px !important; }
+    .notificaciones .dropdown .dropdown-menu p {
+      font-size: 15px;
+      margin: 0;
+      padding: 5px 15px; }
+    .notificaciones .dropdown .dropdown-menu .dropdown-item {
+      color: #272c33;
+      font-size: 13px;
+      padding: 10px 15px 3px;
+      text-overflow: ellipsis; }
+      .notificaciones .dropdown .dropdown-menu .dropdown-item .photo {
+        float: left;
+        margin-right: 15px;
+        width: 25px; }
+      .notificaciones .dropdown .dropdown-menu .dropdown-item .message .name {
+        margin-top: -5px; }
+      .notificaciones .dropdown .dropdown-menu .dropdown-item .message .time {
+        font-size: 11px; }
+      .notificaciones .dropdown .dropdown-menu .dropdown-item .message p {
+        clear: both;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        text-overflow: ellipsis; }
+      .notificaciones .dropdown .dropdown-menu .dropdown-item:hover {
+        background: transparent; }
+
+

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="KB9EVO235" xmlns:wsdlns="KB9EVO235" name="WSInfoUnidadNegocio" targetNamespace="KB9EVO235" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified" targetNamespace="KB9EVO235">
+      <xsd:element name="WSInfoUnidadNegocio.GETUNIDADNEGOCIO">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Mb_epr_cod" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Comid" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WSInfoUnidadNegocio.GETUNIDADNEGOCIOResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Companiasjson" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Error" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WSInfoUnidadNegocio.GETINFOEMPLEADO">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Mb_epr_cod" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Emp_nie" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WSInfoUnidadNegocio.GETINFOEMPLEADOResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Empleadojson" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Error" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WSInfoUnidadNegocio.GETEMPLEADOS">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Mb_epr_cod" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Puestoid" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Catalogoid" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Comid" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Fechaingresostr" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WSInfoUnidadNegocio.GETEMPLEADOSResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Empleadosjson" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Error" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WSInfoUnidadNegocio.GETEMPLEADOSRELCHE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Mb_epr_cod" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Fechastr" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Comid" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WSInfoUnidadNegocio.GETEMPLEADOSRELCHEResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Registrosrelchejson" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Error" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name="WSInfoUnidadNegocio.GETUNIDADNEGOCIOSoapIn">
+    <part name="parameters" element="wsdlns:WSInfoUnidadNegocio.GETUNIDADNEGOCIO" />
+  </message>
+  <message name="WSInfoUnidadNegocio.GETUNIDADNEGOCIOSoapOut">
+    <part name="parameters" element="wsdlns:WSInfoUnidadNegocio.GETUNIDADNEGOCIOResponse" />
+  </message>
+  <message name="WSInfoUnidadNegocio.GETINFOEMPLEADOSoapIn">
+    <part name="parameters" element="wsdlns:WSInfoUnidadNegocio.GETINFOEMPLEADO" />
+  </message>
+  <message name="WSInfoUnidadNegocio.GETINFOEMPLEADOSoapOut">
+    <part name="parameters" element="wsdlns:WSInfoUnidadNegocio.GETINFOEMPLEADOResponse" />
+  </message>
+  <message name="WSInfoUnidadNegocio.GETEMPLEADOSSoapIn">
+    <part name="parameters" element="wsdlns:WSInfoUnidadNegocio.GETEMPLEADOS" />
+  </message>
+  <message name="WSInfoUnidadNegocio.GETEMPLEADOSSoapOut">
+    <part name="parameters" element="wsdlns:WSInfoUnidadNegocio.GETEMPLEADOSResponse" />
+  </message>
+  <message name="WSInfoUnidadNegocio.GETEMPLEADOSRELCHESoapIn">
+    <part name="parameters" element="wsdlns:WSInfoUnidadNegocio.GETEMPLEADOSRELCHE" />
+  </message>
+  <message name="WSInfoUnidadNegocio.GETEMPLEADOSRELCHESoapOut">
+    <part name="parameters" element="wsdlns:WSInfoUnidadNegocio.GETEMPLEADOSRELCHEResponse" />
+  </message>
+  <portType name="WSInfoUnidadNegocioSoapPort">
+    <operation name="GETUNIDADNEGOCIO">
+      <input message="wsdlns:WSInfoUnidadNegocio.GETUNIDADNEGOCIOSoapIn" />
+      <output message="wsdlns:WSInfoUnidadNegocio.GETUNIDADNEGOCIOSoapOut" />
+    </operation>
+    <operation name="GETINFOEMPLEADO">
+      <input message="wsdlns:WSInfoUnidadNegocio.GETINFOEMPLEADOSoapIn" />
+      <output message="wsdlns:WSInfoUnidadNegocio.GETINFOEMPLEADOSoapOut" />
+    </operation>
+    <operation name="GETEMPLEADOS">
+      <input message="wsdlns:WSInfoUnidadNegocio.GETEMPLEADOSSoapIn" />
+      <output message="wsdlns:WSInfoUnidadNegocio.GETEMPLEADOSSoapOut" />
+    </operation>
+    <operation name="GETEMPLEADOSRELCHE">
+      <input message="wsdlns:WSInfoUnidadNegocio.GETEMPLEADOSRELCHESoapIn" />
+      <output message="wsdlns:WSInfoUnidadNegocio.GETEMPLEADOSRELCHESoapOut" />
+    </operation>
+  </portType>
+  <binding name="WSInfoUnidadNegocioSoapBinding" type="wsdlns:WSInfoUnidadNegocioSoapPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GETUNIDADNEGOCIO">
+      <soap:operation soapAction="KB9EVO235action/AWSINFOUNIDADNEGOCIO.GETUNIDADNEGOCIO" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GETINFOEMPLEADO">
+      <soap:operation soapAction="KB9EVO235action/AWSINFOUNIDADNEGOCIO.GETINFOEMPLEADO" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GETEMPLEADOS">
+      <soap:operation soapAction="KB9EVO235action/AWSINFOUNIDADNEGOCIO.GETEMPLEADOS" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GETEMPLEADOSRELCHE">
+      <soap:operation soapAction="KB9EVO235action/AWSINFOUNIDADNEGOCIO.GETEMPLEADOSRELCHE" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WSInfoUnidadNegocio">
+    <port name="WSInfoUnidadNegocioSoapPort" binding="wsdlns:WSInfoUnidadNegocioSoapBinding">
+      <soap:address location="https://mrc.humansite.com.mx/awsinfounidadnegocio.aspx" />
+    </port>
+  </service>
+</definitions>

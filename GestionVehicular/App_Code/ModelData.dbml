@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VSGVTEST" Class="ModelDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=PROGRAMADOR2-PC\TEST;Initial Catalog=VSGVTEST;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="VSGVTESTConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Ruta" Member="Ruta">
+    <Type Name="Ruta">
+      <Column Name="IDRT" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DescripcionRT" Type="System.String" DbType="VarChar(1200)" CanBeNull="true" />
+      <Association Name="Ruta_Escala" Member="Escala" ThisKey="IDRT" OtherKey="IDRT" Type="Escala" />
+      <Association Name="Solicitud_Ruta" Member="Solicitud" ThisKey="IDS" OtherKey="IDS" Type="Solicitud" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerRol" Member="ObtenerRol">
+    <Type Name="ObtenerRol">
+      <Column Name="NombreR" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreUsuarioU" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rol" Member="Rol">
+    <Type Name="Rol">
+      <Column Name="IDR" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreR" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionR" Type="System.String" DbType="VarChar(600)" CanBeNull="true" />
+      <Column Name="EstatusR" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Rol_Usuario" Member="Usuario" ThisKey="IDR" OtherKey="IDR" Type="Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerVehiculosDisponibles" Member="ObtenerVehiculosDisponibles">
+    <Type Name="ObtenerVehiculosDisponibles">
+      <Column Name="IDV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MarcaV" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ModeloV" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="NumSerieV" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="PolizaSeguroV" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ColorV" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PlacaV" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusV" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="CapacidadV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDPolizaD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDTarjetaCirculacionD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vehiculo" Member="Vehiculo">
+    <Type Name="Vehiculo">
+      <Column Name="IDV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MarcaV" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ModeloV" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="NumSerieV" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="PolizaSeguroV" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ColorV" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PlacaV" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusV" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="CapacidadV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDPolizaD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDTarjetaCirculacionD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Vehiculo_Solicitud_Vehiculo" Member="Solicitud_Vehiculo" ThisKey="IDV" OtherKey="IDV" Type="Solicitud_Vehiculo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Escala" Member="Escala">
+    <Type Name="Escala">
+      <Column Name="IDE" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDRT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoE" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacionE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="HoraArriboE" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="ObservacionesE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="MotivoCancelacionAjusteE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Association Name="Ruta_Escala" Member="Ruta" ThisKey="IDRT" OtherKey="IDRT" Type="Ruta" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerSolicitudEscalaPendienteAprobacion" Member="ObtenerSolicitudEscalaPendienteAprobacion">
+    <Type Name="ObtenerSolicitudEscalaPendienteAprobacion">
+      <Column Name="IDE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="NombreSolicitante" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoE" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="HoraArriboE" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="MotivoE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionesE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="DescripcionRT" Type="System.String" DbType="VarChar(1200)" CanBeNull="true" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="NombreSolicitud" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerSolicitudEscalaPendienteAsignacion" Member="ObtenerSolicitudEscalaPendienteAsignacion">
+    <Type Name="ObtenerSolicitudEscalaPendienteAsignacion">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IDRT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LugaresDisponiblesS" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="PuestoU" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoE" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="HoraArriboE" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="FechaCreacionE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionesE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerSolicitudesPendienteAjustes" Member="ObtenerSolicitudesPendienteAjustes">
+    <Type Name="ObtenerSolicitudesPendienteAjustes">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="OtroDestinoS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="EstatusS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DestinoS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerDatosSolicitudAjustes" Member="ObtenerDatosSolicitudAjustes">
+    <Type Name="ObtenerDatosSolicitudAjustes">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrigenS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OtroDestinoS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="MotivoS" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionesS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="LugaresDisponiblesS" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="RequiereChoferS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IDUChoferS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstatusS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCrecionS" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoCancelacionAjusteS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="FechaAutorizaciónS" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="PuestoU" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="NSSU" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="IDUN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="DescripcionRT" Type="System.String" DbType="VarChar(1200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerSolicitudesEscalaPendienteAjustes" Member="ObtenerSolicitudesEscalaPendienteAjustes">
+    <Type Name="ObtenerSolicitudesEscalaPendienteAjustes">
+      <Column Name="IDE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDRT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoE" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacionE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="HoraArriboE" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="ObservacionesE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="MotivoCancelacionAjusteE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="DescripcionRT" Type="System.String" DbType="VarChar(1200)" CanBeNull="true" />
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerDatosSolicitudEscalaAjustes" Member="ObtenerDatosSolicitudEscalaAjustes">
+    <Type Name="ObtenerDatosSolicitudEscalaAjustes">
+      <Column Name="MotivoCancelacionAjusteE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="PuestoU" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="IDE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoE" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="HoraArriboE" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="MotivoE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionesE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerSeguimientoSolicitudEscala" Member="ObtenerSeguimientoSolicitudEscala">
+    <Type Name="ObtenerSeguimientoSolicitudEscala">
+      <Column Name="IDE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDRT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoE" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacionE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="HoraArriboE" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="ObservacionesE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="MotivoCancelacionAjusteE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerDatosSeguimientoEscala" Member="ObtenerDatosSeguimientoEscala">
+    <Type Name="ObtenerDatosSeguimientoEscala">
+      <Column Name="IDE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionRT" Type="System.String" DbType="VarChar(1200)" CanBeNull="true" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoE" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="HoraArriboE" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="MotivoE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionesE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Unidad" Member="Unidad">
+    <Type Name="Unidad">
+      <Column Name="IDUN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusUN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DireccionUN" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Association Name="Unidad_Solicitud" Member="Solicitud" ThisKey="IDUN" OtherKey="OrigenS" Type="Solicitud" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Destinos" Member="Destinos">
+    <Type Name="Destinos">
+      <Column Name="IDUN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerSolicitudVehiculos" Member="ObtenerSolicitudVehiculos">
+    <Type Name="ObtenerSolicitudVehiculos">
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="IDV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerSolicitudEscalaAsignada" Member="ObtenerSolicitudEscalaAsignada">
+    <Type Name="ObtenerSolicitudEscalaAsignada">
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="IDE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDRT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoE" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacionE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="HoraArriboE" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="ObservacionesE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="MotivoCancelacionAjusteE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Documento" Member="Documento">
+    <Type Name="Documento">
+      <Column Name="IDD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreD" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoD" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="RutaRelativaD" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerDatosVehiculo" Member="ObtenerDatosVehiculo">
+    <Type Name="ObtenerDatosVehiculo">
+      <Column Name="IDV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MarcaV" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ModeloV" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="NumSerieV" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="PolizaSeguroV" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ColorV" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PlacaV" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusV" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="CapacidadV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDPolizaD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDTarjetaCirculacionD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Poliza" Type="System.String" DbType="VarChar(309)" CanBeNull="true" />
+      <Column Name="TarjetaCirculacion" Type="System.String" DbType="VarChar(309)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerDatosSeguimientoSolicitud" Member="ObtenerDatosSeguimientoSolicitud">
+    <Type Name="ObtenerDatosSeguimientoSolicitud">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="OrigenS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="OtroDestinoS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionRT" Type="System.String" DbType="VarChar(1200)" CanBeNull="true" />
+      <Column Name="ObservacionesS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="LugaresDisponiblesS" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="MarcaV" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ModeloV" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="PolizaSeguroV" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ColorV" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="PlacaV" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="NumSerieV" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="Poliza" Type="System.String" DbType="VarChar(308)" CanBeNull="true" />
+      <Column Name="TarjetaCirculacion" Type="System.String" DbType="VarChar(308)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerAreas" Member="ObtenerAreas">
+    <Type Name="ObtenerAreas">
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerEscalasAsignadas" Member="ObtenerEscalasAsignadas">
+    <Type Name="ObtenerEscalasAsignadas">
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Solicitud" Member="Solicitud">
+    <Type Name="Solicitud">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrigenS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OtroDestinoS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="MotivoS" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionesS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="ObservacionesSistemaS" Type="System.String" DbType="VarChar(600)" CanBeNull="true" />
+      <Column Name="LugaresDisponiblesS" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="RequiereChoferS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IDUChoferS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstatusS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCrecionS" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoCancelacionAjusteS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="FechaAutorizaciónS" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Solicitud_Ruta" Member="Ruta" ThisKey="IDS" OtherKey="IDS" Type="Ruta" />
+      <Association Name="Solicitud_Solicitud_Vehiculo" Member="Solicitud_Vehiculo" ThisKey="IDS" OtherKey="IDS" Type="Solicitud_Vehiculo" />
+      <Association Name="Unidad_Solicitud" Member="Unidad" ThisKey="OrigenS" OtherKey="IDUN" Type="Unidad" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Usuario_Solicitud" Member="Usuario" ThisKey="IDU" OtherKey="IDU" Type="Usuario" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtieneSolicitudPendienteAprobacion" Member="ObtieneSolicitudPendienteAprobacion">
+    <Type Name="ObtieneSolicitudPendienteAprobacion">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionRT" Type="System.String" DbType="VarChar(1200)" CanBeNull="true" />
+      <Column Name="DestinoS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="OtroDestinoS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="MotivoS" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionesS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="ObservacionesSistemaS" Type="System.String" DbType="VarChar(600)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RequiereChoferS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerSolicitudPendienteAsignacion" Member="ObtenerSolicitudPendienteAsignacion">
+    <Type Name="ObtenerSolicitudPendienteAsignacion">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCrecionS" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="OtroDestinoS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="RequiereChoferS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionRT" Type="System.String" DbType="VarChar(1200)" CanBeNull="true" />
+      <Column Name="EstatusS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="LugaresDisponiblesS" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="MotivoS" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionesS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="ObservacionesSistemaS" Type="System.String" DbType="VarChar(600)" CanBeNull="true" />
+      <Column Name="FechaAutorizaciónS" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreUsuarioU" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ContrasenaU" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="PuestoU" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="CorreoElectronicoU" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="NSSU" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="TelefonoU" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NombreContactoEmergenciaU" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="TelefonoContactoEmergenciaU" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="EstatusU" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="CURPU" Type="System.String" DbType="Char(18)" CanBeNull="true" />
+      <Column Name="IDINED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDLicenciaConducirD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Usuario_Solicitud" Member="Solicitud" ThisKey="IDU" OtherKey="IDU" Type="Solicitud" />
+      <Association Name="Rol_Usuario" Member="Rol" ThisKey="IDR" OtherKey="IDR" Type="Rol" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerDatosUsuario" Member="ObtenerDatosUsuario">
+    <Type Name="ObtenerDatosUsuario">
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="PuestoU" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="TelefonoU" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="NombreUsuarioU" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NSSU" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="IDR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContrasenaU" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="CURPU" Type="System.String" DbType="Char(18)" CanBeNull="true" />
+      <Column Name="INE" Type="System.String" DbType="VarChar(309)" CanBeNull="true" />
+      <Column Name="LC" Type="System.String" DbType="VarChar(309)" CanBeNull="true" />
+      <Column Name="IDDINE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDLC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NombreContactoEmergenciaU" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="TelefonoContactoEmergenciaU" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Foto" Member="Foto">
+    <Type Name="Foto">
+      <Column Name="IDF" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDS_V" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Solicitud_Vehiculo" Member="Solicitud_Vehiculo">
+    <Type Name="Solicitud_Vehiculo">
+      <Column Name="IDS_V" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IDV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FechaAsignacionS_V" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FechaObservacionesS_V" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ObservacionesS_V" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="CondicionesIniciales" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="FechaCondicionesInicialesS_V" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="KilometrajeS_V" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NivelCombustibleS_V" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TarjetaCirculacionS_V" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Solicitud_Solicitud_Vehiculo" Member="Solicitud" ThisKey="IDS" OtherKey="IDS" Type="Solicitud" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Vehiculo_Solicitud_Vehiculo" Member="Vehiculo" ThisKey="IDV" OtherKey="IDV" Type="Vehiculo" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerSolicitudAsignada" Member="ObtenerSolicitudAsignada">
+    <Type Name="ObtenerSolicitudAsignada">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ModeloV" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="ColorV" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PlacaV" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionRT" Type="System.String" DbType="VarChar(1200)" CanBeNull="true" />
+      <Column Name="RequiereChoferS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LugaresDisponiblesS" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReporteIncidencias" Member="ReporteIncidencias">
+    <Type Name="ReporteIncidencias">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCondicionesInicialesS_V" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CondicionesIniciales" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="FechaObservacionesS_V" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ObservacionesS_V" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="IDS_V" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MarcaV" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ModeloV" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="ColorV" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PlacaV" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReporteSolicitante" Member="ReporteSolicitante">
+    <Type Name="ReporteSolicitante">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OtroDestinoS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="DestinoS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MotivoS" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionesS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="ObservacionesSistemaS" Type="System.String" DbType="VarChar(600)" CanBeNull="true" />
+      <Column Name="MotivoCancelacionAjusteS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="EstatusS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerSeguimientoSolicitud" Member="ObtenerSeguimientoSolicitud">
+    <Type Name="ObtenerSeguimientoSolicitud">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrigenS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OtroDestinoS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="MotivoS" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionesS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="ObservacionesSistemaS" Type="System.String" DbType="VarChar(600)" CanBeNull="true" />
+      <Column Name="LugaresDisponiblesS" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="RequiereChoferS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IDUChoferS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstatusS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCrecionS" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoCancelacionAjusteS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="FechaAutorizaciónS" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="KilometrajeS_V" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDS_V" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerVehiculosAsignados" Member="ObtenerVehiculosAsignados">
+    <Type Name="ObtenerVehiculosAsignados">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="ModeloV" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="ColorV" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PlacaV" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionRT" Type="System.String" DbType="VarChar(1200)" CanBeNull="true" />
+      <Column Name="Chofer" Type="System.String" DbType="VarChar(350)" CanBeNull="true" />
+      <Column Name="LugaresDisponiblesS" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="IDS_V" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KilometrajeS_V" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObtenerVehiculosArea" Member="ObtenerVehiculosArea">
+    <Type Name="ObtenerVehiculosArea">
+      <Column Name="IDV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReporteDirector" Member="ReporteDirector">
+    <Type Name="ReporteDirector">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OtroDestinoS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="DestinoS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MotivoS" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraSalidaS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCondicionesInicialesS_V" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FechaRegresoS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraRegresoS" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaObservacionesS_V" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ObservacionesS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="ObservacionesSistemaS" Type="System.String" DbType="VarChar(600)" CanBeNull="true" />
+      <Column Name="MotivoCancelacionAjusteS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="EstatusS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReporteEscalas" Member="ReporteEscalas">
+    <Type Name="ReporteEscalas">
+      <Column Name="IDE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DestinoE" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ObservacionesE" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="NombreEscala" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaEscala" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="NombreSolicitud" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaSolicitud" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReporteCancelada" Member="ReporteCancelada">
+    <Type Name="ReporteCancelada">
+      <Column Name="IDS" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DestinoS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OtroDestinoS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="MotivoS" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaSalidaS" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoCancelacionAjusteS" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaU" Type="System.String" DbType="VarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ReporteTopVehiculo" Method="ReporteTopVehiculo">
+    <Parameter Name="FECHAINI" Parameter="fECHAINI" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FECHAFIN" Parameter="fECHAFIN" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="ReporteTopVehiculoResult">
+      <Column Name="NoVecesUtilizado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MarcaV" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ModeloV" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="ColorV" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PlacaV" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

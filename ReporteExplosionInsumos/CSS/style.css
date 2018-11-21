@@ -1,0 +1,204 @@
+/*Mario Gress
+  Estilos personalizados para MRC 
+  2018
+*/
+
+body
+{
+    background-image:url(../img/Fondo4.jpg) !important;
+    background-position:center !important;
+    background-repeat:no-repeat !important;
+    background-attachment:fixed !important;
+    font-family:Verdana!important;    
+}
+
+.color-fuente
+{
+    color:white;   
+}
+
+.color-boton-principal
+{
+    background-color:#DC911B !important;
+}
+
+.color-fuente-strong
+{
+    
+    font-weight:600;    
+}
+
+.activo 
+{
+    background-color:#DC911B;
+    border-radius:5px;
+}
+
+.item-inactivo:hover
+{
+    background-color:#DC911B;
+    border-radius:5px;
+}
+
+.color-panel
+{
+    background-color:white!important;
+
+}
+
+.espaciotitulo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Formateamos el label que servirá de contenedor */
+.switchpersonalizado {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-left:10px;
+}
+ 
+ /*Ocultamos el checkbox html */
+.switchpersonalizado input {
+  display:none;
+}
+ 
+ /*Formateamos la caja del interruptor sobre la cual se deslizará la perilla de control o slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+ 
+ /*Pintamos la perilla de control o slider usando el selector before */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+ 
+ /*Cambiamos el color de fondo cuando el checkbox esta activado */
+input:checked + .slider {
+  background-color: #00C851;
+}
+ 
+ /*Deslizamos el slider a la derecha cuando el checkbox esta activado*/  
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+ 
+ /*Aplicamos efecto de bordes redondeados en slider y en el fondo del slider */
+.slider.round {
+  border-radius: 34px;
+}
+ 
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* The container */
+.contenedor {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.contenedor input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    font-size:inherit;
+    font-style:inherit;
+    font-family:inherit;
+}
+
+/* Create a custom radio button */
+.marcado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.contenedor:hover input ~ .marcado {
+    background-color: #91ccff;
+}
+
+/* When the radio button is checked, add a blue background */
+.contenedor input:checked ~ .marcado {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.marcado:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.contenedor input:checked ~ .marcado:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.contenedor .marcado:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.limpiar{
+
+}
+
+.preloader {
+  width: 70px;
+  height: 70px;
+  border: 10px solid #eee;
+  border-top: 10px solid #666;
+  border-radius: 50%;
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

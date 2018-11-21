@@ -1,0 +1,261 @@
+/*Mario Gress
+  Estilos personalizados para MRC 
+  2018
+*/
+
+body
+{
+    background-image:url(../img/Fondo4.jpg) !important;
+    background-position:center !important;
+    background-repeat:no-repeat !important;
+    background-attachment:fixed !important;
+    font-family:Verdana!important;    
+}
+
+.color-fuente
+{
+    color:white;   
+}
+
+.color-boton-principal
+{
+    background-color:#DC911B !important;
+}
+
+.color-fuente-strong
+{
+    
+    font-weight:600;    
+}
+
+.activo 
+{
+    background-color:#DC911B;
+    border-radius:5px;
+}
+
+.item-inactivo:hover
+{
+    background-color:#DC911B;
+    border-radius:5px;
+}
+
+.color-panel
+{
+    background-color:white!important;
+
+}
+
+.espaciotitulo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Formateamos el label que servirá de contenedor */
+.switchpersonalizado {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-left:10px;
+}
+ 
+ /*Ocultamos el checkbox html */
+.switchpersonalizado input {
+  display:none;
+}
+ 
+ /*Formateamos la caja del interruptor sobre la cual se deslizará la perilla de control o slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+ 
+ /*Pintamos la perilla de control o slider usando el selector before */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+ 
+ /*Cambiamos el color de fondo cuando el checkbox esta activado */
+input:checked + .slider {
+  background-color: #00C851;
+}
+ 
+ /*Deslizamos el slider a la derecha cuando el checkbox esta activado*/  
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+ 
+ /*Aplicamos efecto de bordes redondeados en slider y en el fondo del slider */
+.slider.round {
+  border-radius: 34px;
+}
+ 
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* The container */
+.contenedor {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.contenedor input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    font-size:inherit;
+    font-style:inherit;
+    font-family:inherit;
+}
+
+/* Create a custom radio button */
+.marcado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.contenedor:hover input ~ .marcado {
+    background-color: #91ccff;
+}
+
+/* When the radio button is checked, add a blue background */
+.contenedor input:checked ~ .marcado {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.marcado:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.contenedor input:checked ~ .marcado:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.contenedor .marcado:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.limpiar{
+
+}
+
+.preloader {
+  width: 70px;
+  height: 70px;
+  border: 10px solid #eee;
+  border-top: 10px solid #666;
+  border-radius: 50%;
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1000000000; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}

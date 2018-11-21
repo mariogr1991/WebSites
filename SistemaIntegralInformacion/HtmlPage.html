@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" media="screen" href="JS/particles.js-master/demo/css/style.css" />
+    <link href="CSS/Prueba.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/bootstrap.css" rel="stylesheet" />
+    <link href="CSS/mdb.css" rel="stylesheet" />
+    <link href="CSS/Style.css" rel="stylesheet" />  
+    <title>Sistema Integral de Información Madero Restaurante</title>
+</head>
+<body>
+    <div id="particles-js" style="z-index:-1;">        
+        <div class="container-fluid" style="position:absolute; z-index:100;">
+            <div class="form-group">
+                <h2 class="color-fuente text-center mb-4">Sistema Integral de Información</h2>
+                <h2 class="color-fuente text-center mb-4">Madero Restaurante</h2>
+                <img src="IMG/Logo.png" class="rounded mx-auto d-block" alt="Responsive image" style="width:15%;" />
+                <h4 class="color-fuente text-center mb-4" style="margin-top:10px;">Ingresar</h4>
+                <i class="fa fa-user-circle prefix white-text fa-2x"></i>
+                <label for="numeroempleado" class="color-fuente">Número de Empleado</label>
+                <input type="text" class="form-control" id="numeroempleado" runat="server" aria-describedby="user" placeholder="Ingrese su número de empleado" />
+                <small id="userHelp" class="form-text text-muted">El número de empleado le debe de haber sido propocionado al ingresar</small>
+            </div>
+            <div class="form-group">
+                <i class="fa fa-unlock-alt prefix white-text fa-2x"></i>
+                <label for="PINempleado" class="color-fuente">PIN</label>
+                <input type="password" class="form-control" id="PINempleado" placeholder="Ingrese su PIN" />
+                <small id="userHelpPIN" class="form-text text-muted">Consta de cuatro digitos, unicamente si cuenta con el</small>
+            </div>
+            <button type="button" class="btn color-boton-principal" data-toggle="modal" onclick="Ingresar()">
+                Ingresar
+            </button>
+        </div>
+    </div>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+    <script src="Js/TEST.js"></script>
+    <!-- scripts -->
+    <script src="JS/particles.js-master/particles.js"></script>
+    <script src="JS/particles.js-master/demo/js/app.js"></script>
+</body>
+</html>

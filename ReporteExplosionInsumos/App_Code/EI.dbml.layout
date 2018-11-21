@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.125, 8.5" name="REI">
+  <DataContextMoniker Name="/REIDataContext" />
+  <nestedChildShapes>
+    <classShape Id="9f324e84-c491-4440-b72b-5b0e10e63c8d" absoluteBounds="1, 3.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/REIDataContext/Unidad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c3473733-6078-41f6-a303-7ce64b664ce7" absoluteBounds="1.0150000000000001, 4.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed0b53b0-ad4e-4941-abe5-2f17ff5056bf" absoluteBounds="5.5, 4.125, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/REIDataContext/Usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dad9a6b7-00f0-4f5a-9133-3b7e8b5287af" absoluteBounds="5.5150000000000006, 4.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9ddac01e-a778-4d31-892e-b079df965b40" absoluteBounds="1, 0.5, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/REIDataContext/Documento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a2953b25-c4ef-4ca2-bd04-6f03abc7e17f" absoluteBounds="1.0150000000000001, 0.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f09eea27-50b1-4dc4-8f6b-e84f18879675" absoluteBounds="5.5, 0.5, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/REIDataContext/Variacion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8eeadbda-19f4-4700-97f7-75890e1d4aa9" absoluteBounds="5.5150000000000006, 0.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eb268830-3ee1-48e1-8992-068a5cb43647" absoluteBounds="3.25, 0.5, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/REIDataContext/Inventario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9782d9e6-40de-42c9-a62c-15abe89aeb40" absoluteBounds="3.2649999999999997, 0.96, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c7b3b1d8-8c3b-42cd-a89d-6e151a060a10" absoluteBounds="9.875, 0.5, 2, 6.9630354817708326">
+      <DataClassMoniker Name="/REIDataContext/ReporteInsumos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77b1e4b9-f0cd-4506-9f4d-a5490d6a1fab" absoluteBounds="9.89, 0.96, 1.9700000000000002, 6.403035481770833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3847f685-2ff4-445e-95fb-12bc07651e56" absoluteBounds="7.625, 0.5, 2, 4.8477197265625">
+      <DataClassMoniker Name="/REIDataContext/InventarioDocumento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="638f7411-8511-4f94-90c2-8385964c9d14" absoluteBounds="7.6400000000000006, 0.96, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VSEITEST" Class="REIDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=PROGRAMADOR2-PC\TEST;Initial Catalog=VSEITEST;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="VSEITESTConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Unidad" Member="Unidad">
+    <Type Name="Unidad">
+      <Column Name="IDUN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DireccionUN" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreU" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="PassU" Type="System.String" DbType="VarChar(14) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Documento" Member="Documento">
+    <Type Name="Documento">
+      <Column Name="IDD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FechaCreacionD" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="HoraCreacionD" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="FechaPeriodoIniD" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FechaPeriodoFinD" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="RutaD" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreD" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoD" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="IDUN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubTipoD" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Variacion" Member="Variacion">
+    <Type Name="Variacion">
+      <Column Name="IDV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodigoV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoriaV" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductoV" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="UMV" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CostoUnitarioV" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="DiferenciaV" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaUltimoInventarioV" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IDD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UtilizadoV" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaIniPeriodoV" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaFinPeriodoV" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IDUNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubTipoV" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Inventario" Member="Inventario">
+    <Type Name="Inventario">
+      <Column Name="IDI" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodigoI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoriaI" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductoI" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="UMI" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CostoUnitarioI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="InventarioInicialI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="ComprasI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="UtilizadoI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="InventarioFinalI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaUltimoInventarioI" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DetalleI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaIniPeriodoI" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaFinPeriodoI" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IDUNI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubTipoI" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReporteInsumos" Member="ReporteInsumos">
+    <Type Name="ReporteInsumos">
+      <Column Name="FechaPeriodoIniD" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FechaPeriodoFinD" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FechaPeriodoIniDV" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaPeriodoFinDV" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IDUNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDUN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IDI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodigoI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoriaI" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductoI" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="UMI" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CostoUnitarioI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="InventarioInicialI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalInventarioInicialI" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="ComprasI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalComprasI" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="UtilizadoI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalUtilizadoI" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="InventarioFinalI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalInventarioFinalI" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="DifrenciaInventarioInicialCompras" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="TotlaDifrenciaInventarioInicialCompras" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="FechaUltimoInventarioI" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DetalleI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiferenciaV" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="UtilizadoV" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="[Perdida/Favor]" Member="Perdida_Favor" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="NombreD" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="SubTipoD" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InventarioDocumento" Member="InventarioDocumento">
+    <Type Name="InventarioDocumento">
+      <Column Name="IDI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodigoI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoriaI" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductoI" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="UMI" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CostoUnitarioI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="InventarioInicialI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="ComprasI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="UtilizadoI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="InventarioFinalI" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaUltimoInventarioI" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DetalleI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaIniPeriodoI" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaFinPeriodoI" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IDUNI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubTipoI" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="FechaPeriodoIniD" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="FechaPeriodoFinD" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="IDUN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubTipoD" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ObtenerDatosInsumoUnidad" Method="ObtenerDatosInsumoUnidad">
+    <Parameter Name="Insumo" Parameter="insumo" Type="System.String" DbType="VarChar(600)" />
+    <Parameter Name="FechaIni" Parameter="fechaIni" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaFin" Parameter="fechaFin" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="ObtenerDatosInsumoUnidadResult">
+      <Column Name="Variacion" Type="System.Decimal" DbType="Decimal(38,3)" CanBeNull="true" />
+      <Column Name="NombreUN" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ObtenerDatosInsumoUnidadArea" Method="ObtenerDatosInsumoUnidadArea">
+    <Parameter Name="Insumo" Parameter="insumo" Type="System.String" DbType="VarChar(600)" />
+    <Parameter Name="FechaIni" Parameter="fechaIni" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaFin" Parameter="fechaFin" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Unidad" Parameter="unidad" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ObtenerDatosInsumoUnidadAreaResult">
+      <Column Name="Variacion" Type="System.Decimal" DbType="Decimal(38,3)" CanBeNull="true" />
+      <Column Name="SubTipoD" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
